@@ -1,19 +1,24 @@
 # Introduction au langage PHP - Correction des exercices
-## II)Syntaxe, entrées et sorties
-### Exercice 1 :
->Créer un script demandant son année de naissance à l'utilisateur et affichant son age.
 
-```php
+## II)Syntaxe, entrées et sorties
+
+### Exercice 1 :
+
+> Créer un script demandant son année de naissance à l'utilisateur et affichant son age.
+
+```
 <?php
 $annee_naissance = readline('Votre année de naissance:');
 echo 2022 - $annee_naissance;
 ```
 
 ## III) Structures conditionnelles
-### Exercice 2:
->Créer un script qui demande son année de naissance à l'utilisateur et qui affiche s'il est majeur ou non.
 
-```php
+### Exercice 2:
+
+> Créer un script qui demande son année de naissance à l'utilisateur et qui affiche s'il est majeur ou non.
+
+```
 <?php
 $annee_naissance = readline('Votre année de naissance:');
 $age = 2022 - $annee_naissance;
@@ -26,17 +31,18 @@ else {
 ```
 
 ### Exercice 3:
->```php
-<?php
-$a = 42;
-if ($a <= 40) { echo "A"; }
-elseif ($a > 38) { echo "B"; }
-elseif ($a > 41) { echo "C";  }
-else { echo "D"; }
-```
-1. Que va afficher le script ci-dessus?
-2. Et si on change la deuxième ligne par `$a = 39` ?
-3. Quelle valeur doit-on mettre à $a pour faire afficher `D` ?
+
+>```PHP
+><?php
+>$a = 42;
+>if ($a <= 40) { echo "A"; }
+>elseif ($a > 38) { echo "B"; }
+>elseif ($a > 41) { echo "C"; }
+>else { echo "D"; }
+>```
+>1. Que va afficher le script ci-dessus?
+>2. Et si on change la deuxième ligne par `$a = 39` ?
+>3. Quelle valeur doit-on mettre à $a pour faire afficher `D` ?
 
 
 1. Le script va afficher `B`.
@@ -45,26 +51,26 @@ else { echo "D"; }
 
 ### Exercice 4:
 >```php
-<?php
-$var = 1;
-switch($var){
-    case 1: echo 1;
-    case 2: echo 2; break;
-    default: echo 3;
-}
-```
-1. Que va afficher le script ci-dessus?
-2. Si on change la deuxième ligne par `$var = 2` ?
-3. Si on change la deuxième ligne par `$var = 42` ?
-
-1.  **Il va afficher `12`.**
-2.  **Il va afficher `2`.**
-3.  **Il va afficher `3`.**
+><?php
+>$var = 1;
+>switch($var){
+>    case 1: echo 1;
+>    case 2: echo 2; break;
+>    default: echo 3;
+>}
+>```
+>1. Que va afficher le script ci-dessus?
+>2. Si on change la deuxième ligne par `$var = 2` ?
+>3. Si on change la deuxième ligne par `$var = 42` ?
+4. **Il va afficher** `12`.
+5. **Il va afficher** `2`.
+6. **Il va afficher** `3`.
 
 ### Exercice TP 5:
-Le prix d'une place de cinéma est de 10€ pour les plus de 20 ans, 7,5€ pour les personnes entre 5
-et 19 ans et gratuit pour les autres. Écrire un algorithme qui demande l'année de naissance et affiche le prix à payer.
-```php
+
+>Le prix d'une place de cinéma est de 10€ pour les plus de 20 ans, 7,5€ pour les personnes entre 5 et 19 ans et gratuit pour les autres. Écrire un algorithme qui demande l'année de naissance et affiche le prix à payer.
+
+```PHP
 <?php
 $annee_naissance = readline('Votre année de naissance:');
 $age = 2022 - $annee_naissance;
@@ -81,9 +87,9 @@ else {
 }
 ```
 
-#### Exercice TP 6 :
->Écrire un script qui demande le jour, le mois, et l'année de naissance de l'utilisateur et qui dit s'il est majeur.
-Il faudra utiliser la fonction `date()` de PHP pour être précis au jour près!
+### Exercice TP 6 :
+
+> Écrire un script qui demande le jour, le mois, et l'année de naissance de l'utilisateur et qui dit s'il est majeur. Il faudra utiliser la fonction `date()` de PHP pour être précis au jour près!
 
 ```php
 <?php
@@ -147,15 +153,15 @@ else {
 }
 
 ```
-#### Exercice TP 8:
->1. Ouvrir l'url suivante dans un navigateur. Qu'y voit-on?
-https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=prevision-meteo-rennes-arome&rows=1
-2. Dans un fichier PHP, utiliser `file_get_contents($url)` pour obtenir les données.
-3. Convertir les données en tableau avec `json_decode($string, true)`.
-4. Afficher les prévisions météorologiques de Rennes.
+## III)Tableaux en PHP:
+### Exercice TP 8:
+
+> 1. Ouvrir l'url suivante dans un navigateur. Qu'y voit-on? https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=prevision-meteo-rennes-arome&rows=1
+>2. Dans un fichier PHP, utiliser `file_get_contents($url)` pour obtenir les données.
+>3. Convertir les données en tableau avec `json_decode($string, true)`.
+>4. Afficher les prévisions météorologiques de Rennes.
 
 1. Cela ressemble à des prévisions météorologiques de la ville de Rennes.
-
 2. Fichier PHP:
 
 ```php
@@ -166,14 +172,16 @@ $reponse = file_get_contents($url);
 
 var_dump($reponse);
 ```
+
 Affichage (`$reponse` est une chaîne de caractère):
+
 ```
 string(956) "{"nhits": 3560, "parameters": {"dataset": ["prevision-meteo-rennes-arome"], "rows": 1, "start": 0, "format": "json", "timezone": "UTC"}, "records": [{"datasetid": "prevision-meteo-rennes-arome", "recordid": "arome_0025_sp1_sp2_sp3_lastgrib2-6129770", "fields": {"10m_wind_speed": 3.308612, "total_precipitation": 0.039062, "2_metre_relative_humidity": 61.648178, "maximum_temperature_at_2_metres": 17.509821000000045, "minimum_temperature_at_2_metres": 16.534387000000038, "2_metre_temperature": 17.512628000000007, "position": [48.225, -1.675], "surface_latent_heat_flux": -2933029.0, "surface_solar_radiation_downwards": 9051419.0, "surface_net_thermal_radiation": -2296722.0, "forecast": "2022-10-07T13:00:00+00:00", "surface_net_solar_radiation": 7358148.0, "timestamp": "2022-10-07T03:00:00+00:00", "surface_sensible_heat_flux": -1619189.0}, "geometry": {"type": "Point", "coordinates": [-1.675, 48.225]}, "record_timestamp": "2022-10-07T03:00:00Z"}]}"
 ```
 
 3. PHP
 
-```php
+```
 <?php
 
 $url = 'https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=prevision-meteo-rennes-arome&rows=1';
@@ -250,6 +258,7 @@ Array
 
 )
 ```
+
 4. PHP
 
 ```php
@@ -279,7 +288,9 @@ echo 'Précipitations (mm): ' . $donnees['total_precipitation'] . PHP_EOL;
 echo 'Température (°C): ' . $donnees['2_metre_temperature'] . PHP_EOL;
 echo 'Humidité (%): ' . $donnees['2_metre_relative_humidity'] . PHP_EOL;
 ```
+
 Affichage
+
 ```
 Prévisions météorologiques de Rennes pour le 07/10/2022 à 13:00:00
 Précipitations (mm): 0.039062
