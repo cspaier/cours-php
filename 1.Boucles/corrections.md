@@ -73,7 +73,7 @@ for ($i=1; $i < 200;$i = $i + 2){
 >55555
 >```
 
-```
+```php
 <?php
 // On fait 5 lignes, pour $i allant de 1 à 5.
 for ($i = 1; $i < 6; $i++){
