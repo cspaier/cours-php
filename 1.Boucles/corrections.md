@@ -1,9 +1,12 @@
 # Boucles en PHP - Correction des exercices
-## I) Boucles while et for
-### Exercice 1:
->Créer un script qui demande un nombre entier n à l'utilisateur et affiche la table de multiplication de n.
 
-```PHP
+## I) Boucles while et for
+
+### Exercice 1:
+
+> Créer un script qui demande un nombre entier n à l'utilisateur et affiche la table de multiplication de n.
+
+```php
 <?php
 $nombre = readline('Donne un nombre:');
 $i = 0;
@@ -14,40 +17,44 @@ while ($i <= 10){
 ```
 
 ### Exercice 2:
->Que représente la valeur affichée à la fin du script ci-dessous?
-```PHP
-<?php
-$i = 0;
-$n = 0;
-while ($i < 100){
-  $i = $i + 2;
-  $n = $n + $i;
-}
-echo $n;
-```
 
-C'est la somme des entiers pairs inférieurs ou égaux 100:
-n = 0 + 2 + 4 + ... + 96 + 98 + 100
+> Que représente la valeur affichée à la fin du script ci-dessous?
+
+>```php
+><?php
+>$i = 0;
+>$n = 0;
+>while ($i < 100){
+>  $i = $i + 2;
+>  $n = $n + $i;
+>}
+>echo $n;
+>```
+
+C'est la somme des entiers pairs inférieurs ou égaux 100: n = 0 + 2 + 4 + ... + 96 + 98 + 100
 
 ### Exercice 3:
->Que va afficher le script ci-contre?
-```PHP
-<?php
-for ($i=0; $i < 10; $i++){
-  echo $i  + 3;
-}
-```
+
+> Que va afficher le script ci-contre?
+
+>```php
+><?php
+>for ($i=0; $i < 10; $i++){
+>  echo $i  + 3;
+>}
+>```
 
 Le script va afficher `3456789101112`.
 
-
 ### Remarque:
+
 L'ordre des exercices 4 et 5 a été inversé.
 
 ### Exercice TP 5:
->Créer un script affichant les 100 premiers nombres impairs à l'aide d'une boucle for.
 
-```PHP
+> Créer un script affichant les 100 premiers nombres impairs à l'aide d'une boucle for.
+
+```php
 <?php
 
 for ($i=1; $i < 200;$i = $i + 2){
@@ -56,16 +63,17 @@ for ($i=1; $i < 200;$i = $i + 2){
 ```
 
 ### Exercice TP 4:
->Créer un script qui produit l'affichage ci-dessous.
-```
-1
-22
-333
-4444
-55555
-```
 
-```PHP
+> Créer un script qui produit l'affichage ci-dessous.
+>```
+>1
+>22
+>333
+>4444
+>55555
+>```
+
+```
 <?php
 // On fait 5 lignes, pour $i allant de 1 à 5.
 for ($i = 1; $i < 6; $i++){
@@ -79,11 +87,12 @@ for ($i = 1; $i < 6; $i++){
 ```
 
 ### Exercice TP 6:
->Créer un script qui tire 1000 nombres entiers entre 1 et 100 au hasard à l'aide de la fonction rand().
-Si un, par hasard, on obtient le nombre 42, le script doit s’arrêter et afficher alors le nombre d'entiers ayant été tirés au sort.
+
+> Créer un script qui tire 1000 nombres entiers entre 1 et 100 au hasard à l'aide de la fonction rand(). Si un, par hasard, on obtient le nombre 42, le script doit s’arrêter et afficher alors le nombre d'entiers ayant été tirés au sort.
 
 Avec un `for`:
-```PHP
+
+```php
 <?php
 // On répète 1000 fois le tirage au sort.
 for ($i = 0; $i < 1000; $i++){
@@ -98,8 +107,10 @@ for ($i = 0; $i < 1000; $i++){
     }
 }
 ```
+
 Avec un `while`:
-```PHP
+
+```php
 <?php
 /* On initialise les variables:
 * $i: Compteur de tirage. De 0 à 1000.
@@ -128,15 +139,17 @@ if ($nombre == 42){
 ## II) Boucles foreach
 
 ### Exercice TP 7:
+
 >1. Remplir un tableau de 100 nombres entier entre 0 et 200 au hasard à l'aide de la fonction rand().
-2. A l'aide d'une boucle, déterminer le maximum, la moyenne et le minimum de ce tableau.
-3. Préciser dans l'affichage un indice du tableau contenant le minimum et le maximum.
-4. Préciser dans l'affichage tous les indices du tableau contenant le minimum et le maximum.
+>2. A l'aide d'une boucle, déterminer le maximum, la moyenne et le minimum de ce tableau.
+>3. Préciser dans l'affichage un indice du tableau contenant le minimum et le maximum.
+>4. Préciser dans l'affichage tous les indices du tableau contenant le minimum et le maximum.
 
 #### 1. Remplir un tableau de 100 nombres entier entre 0 et 200 au hasard à l'aide de la fonction rand().
+
 PHP
 
-```PHP
+```php
 <?php
 // On créé un tableau vide.
 $tableau = [];
@@ -147,6 +160,7 @@ for ($i = 0; $i < 100; $i++){
 }
 print_r($tableau);
 ```
+
 Affichage
 
 ```
@@ -164,8 +178,9 @@ Array
 )
 ```
 
-#### 2. A l'aide d'une boucle, déterminer le maximum, la moyenne et le minimum de ce tableau.
-```PHP
+#### 2\. A l'aide d'une boucle, déterminer le maximum, la moyenne et le minimum de ce tableau.
+
+```php
 <?php
 // On crée un tableau vide.
 $tableau = [];
@@ -208,7 +223,8 @@ echo "la moyenne est $moyenne." . PHP_EOL;
 ```
 
 #### 3. Préciser dans l'affichage un indice du tableau contenant le minimum et le maximum.
-```PHP
+
+```php
 <?php
 // On créé un tableau vide.
 $tableau = [];
@@ -256,15 +272,17 @@ echo "Le minimum est $tab_min obtenu à l'indice $clef_min." . PHP_EOL;
 echo "Le maximum est $tab_max obtenu à l'indice $clef_max." . PHP_EOL;
 echo "la moyenne est $moyenne." . PHP_EOL;
 ```
+
 **Remarque:** La fonction `array_search()` permet de récupérer la première clef ayant une valeur donnée dans un tableau. Avec la fin du code de la question précédente, on aurait donc pu faire:
-```PHP
+
+```
 $clef_min = array_search($tab_min, $tableau);
 $clef_max = array_search($tab_max, $tableau);
 ```
 
 #### 4. Préciser dans l'affichage tous les indices du tableau contenant le minimum et le maximum.
 
-```PHP
+```php
 <?php
 // On créé un tableau vide.
 $tableau = [];
@@ -336,47 +354,52 @@ echo PHP_EOL;
 
 ```
 
-**Remarque:** La fonction `array_keys()` retourne toutes les clefs d'un tableau ayant une valeur donnée. On aurait donc pu, à partir du code de la question **2**:
+**Remarque:** La fonction `array_keys()` retourne toutes les clefs d'un tableau ayant une valeur donnée. On aurait donc pu, à partir du code de la question **2**\:
+
 ```
 $clefs_mins = array_keys($tableau, $tab_min);
 $clefs_max = array_keys($tableau, $tab_max);
 ```
 
 ### Exercice TP 8:
+
 >1. Ouvrir le fichier ex8.php
-2. Pour chaque année, afficher: `2018: France a gagné contre Croatie`
-3. Afficher le(s) pays ayant gagné le plus de coupes du monde.
-4. Afficher le(s) pays ayant été le plus en finale.
-```PHP
-<?php
-$champions = array(
-2018 => array('France',  'Croatie'),
-2014 => array('Allemagne', 'Argentine'),
-2010 => array('Espagne', 'Pays-Bas'),
-2006 => array('Italie', 'France'),
-2002 => array('Brésil', 'Allemagne'),
-1998 => array('France', 'Brésil'),
-1994 => array('Brésil', 'Italie'),
-1990 => array('Allemagne', 'Argentine'),
-1986 => array('Argentine', 'RFA'),
-1982 => array('Italie', 'RFA'),
-1978 => array('Argentine', 'Pays-Bas'),
-1974 => array('RFA', 'Pays-Bas'),
-1970 => array('Brésil', 'Italie'),
-1966 => array('Angleterre', 'RFA'),
-1962 => array('Brésil', 'Tchécoslovaquie'),
-1958 => array('Brésil', 'Suède'),
-1954 => array('RFA', 'Hongrie'),
-1950 => array('Uruguay', 'Brésil'),
-1938 => array('Italie', 'Hongrie'),
-1934 => array('Italie', 'Tchécoslovaquie'),
-1930 => array('Uruguay', 'Argentine'),
-);
-```
+>2. Pour chaque année, afficher: `2018: France a gagné contre Croatie`
+>3. Afficher le(s) pays ayant gagné le plus de coupes du monde.
+>4. Afficher le(s) pays ayant été le plus en finale.
+>
+>```php
+><?php
+>$champions = array(
+>2018 => array('France',  'Croatie'),
+>2014 => array('Allemagne', 'Argentine'),
+>2010 => array('Espagne', 'Pays-Bas'),
+>2006 => array('Italie', 'France'),
+>2002 => array('Brésil', 'Allemagne'),
+>1998 => array('France', 'Brésil'),
+>1994 => array('Brésil', 'Italie'),
+>1990 => array('Allemagne', 'Argentine'),
+>1986 => array('Argentine', 'RFA'),
+>1982 => array('Italie', 'RFA'),
+>1978 => array('Argentine', 'Pays-Bas'),
+>1974 => array('RFA', 'Pays-Bas'),
+>1970 => array('Brésil', 'Italie'),
+>1966 => array('Angleterre', 'RFA'),
+>1962 => array('Brésil', 'Tchécoslovaquie'),
+>1958 => array('Brésil', 'Suède'),
+>1954 => array('RFA', 'Hongrie'),
+>1950 => array('Uruguay', 'Brésil'),
+>1938 => array('Italie', 'Hongrie'),
+>1934 => array('Italie', 'Tchécoslovaquie'),
+>1930 => array('Uruguay', 'Argentine'),
+>);
+>```
+
 **Remarque:** Par soucis de lisibilité, on n'inclura la déclaration du tableau `$champions` dans les corrections ci-dessous. Elle est bien entendue nécessaire au fonctionnement des scripts.
 
 #### 2. Pour chaque année, afficher: `2018: France a gagné contre Croatie`
-```PHP
+
+```php
 <?php
 // Inclure la déclaration du tableau champions.
 foreach ($champions as $annee => $finale){
@@ -385,8 +408,9 @@ foreach ($champions as $annee => $finale){
 }
 ```
 
-#### 3. Afficher le(s) pays ayant gagné le plus de coupes du monde.
-```PHP
+#### 3\. Afficher le(s) pays ayant gagné le plus de coupes du monde.
+
+```php
 <?php
 // Inclure la déclaration du tableau champions.
 
@@ -430,31 +454,37 @@ foreach ($victoires as $pays => $n_victoires) {
 }
 ```
 
-#### 4. Afficher le(s) pays ayant été le plus en finale.
+#### 4\. Afficher le(s) pays ayant été le plus en finale.
+
 Cette question est si proche de la précédente que la correction est laissée au lecteur.
 
 ### Exercice TP 9:
->1. A l'aide de la fonction `scandir()`, afficher le contenu du dossier fourni.
-2. Renommer chaque fichier afin d'enlever les caractères spéciaux et de remplacer les espaces par des `_`.
-On pourra utiliser les fonctions `rename()` et `str_replace()`.
-```
-Contenu du dossier:
-📂exercice_9
- ┣ 📂0 Un dossier avec un.point
- ┣ 📜les  $ aussi.txt
- ┗ 📜les espaces c'est mal.txt
-```
 
-#### 1. A l'aide de la fonction `scandir()`, afficher le contenu du dossier fourni.
+> 1. A l'aide de la fonction `scandir()`, afficher le contenu du dossier fourni.
+>2. Renommer chaque fichier afin d'enlever les caractères spéciaux et de remplacer les espaces par des `_`. On pourra utiliser les fonctions `rename()` et `str_replace()`.
+>
+>```
+>Contenu du dossier:
+>📂exercice_9
+> ┣ 📂0 Un dossier avec un.point
+> ┣ 📜les  $ aussi.txt
+> ┗ 📜les espaces c'est mal.txt
+>```
+
+#### 1\. A l'aide de la fonction `scandir()`, afficher le contenu du dossier fourni.
+
 PHP
-```PHP
+
+```php
 <?php
 // Il faut placer le dossier "exercice_9" dans le même répertoire que le fichier PHP.
 // Sinon, il faut adapter les chemins.s
 $chemin = 'exercice_9';
 print_r(scandir($chemin));
 ```
+
 Affichage
+
 ```
 Array
 (
@@ -468,8 +498,7 @@ Array
 
 #### 2. Renommer chaque fichier afin d'enlever les caractères spéciaux et de remplacer les espaces par des `_`. On pourra utiliser les fonctions `rename()` et `str_replace()`.
 
-
-```PHP
+```php
 <?php
 // Il faut placer le dossier "exercice_9" dans le même répertoire que le fichier PHP.
 // Sinon, il faut adapter les chemins.
