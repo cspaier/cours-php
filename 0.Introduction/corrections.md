@@ -6,7 +6,7 @@
 
 > Créer un script demandant son année de naissance à l'utilisateur et affichant son age.
 
-```
+```php
 <?php
 $annee_naissance = readline('Votre année de naissance:');
 echo 2022 - $annee_naissance;
@@ -18,7 +18,7 @@ echo 2022 - $annee_naissance;
 
 > Créer un script qui demande son année de naissance à l'utilisateur et qui affiche s'il est majeur ou non.
 
-```
+```php
 <?php
 $annee_naissance = readline('Votre année de naissance:');
 $age = 2022 - $annee_naissance;
