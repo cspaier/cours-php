@@ -51,7 +51,7 @@ $prevision = date_create($donnees['forecast']);
     <title>Météo Rennes</title>
   </head>
   <body>
-    <h1>Prévisions météorologiques de Rennes pour le <?= date_format($prevision, "d/m/Y à H:i:s") ?>
+    <h1>Prévisions météorologiques de Rennes pour le <?= date_format($prevision, "d/m/Y à H:i:s") ?></h1>
     <p>Précipitations (mm): <?= $donnees['total_precipitation'] ?></p>
     <p>Température (°C): <?= $donnees['2_metre_temperature'] ?></p>
     <p>Humidité (%): <?= $donnees['2_metre_relative_humidity'] ?></p>
@@ -66,11 +66,11 @@ $prevision = date_create($donnees['forecast']);
 ```php
 <?php
 $champions = array(
-  2018 =>	array('France',  'Croatie'),
-  2014 =>	array('Allemagne', 'Argentine'),
-  2010 =>	array('Espagne', 'Pays-Bas'),
-  2006 =>	array('Italie', 'France'),
-  2002 =>	array('Brésil', 'Allemagne'),
+  2018 => array('France',  'Croatie'),
+  2014 => array('Allemagne', 'Argentine'),
+  2010 => array('Espagne', 'Pays-Bas'),
+  2006 => array('Italie', 'France'),
+  2002 => array('Brésil', 'Allemagne'),
   1998 => array('France', 'Brésil'),
   1994 => array('Brésil', 'Italie'),
   1990 => array('Allemagne', 'Argentine'),
