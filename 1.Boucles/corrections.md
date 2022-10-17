@@ -404,7 +404,7 @@ $clefs_max = array_keys($tableau, $tab_max);
 // Inclure la déclaration du tableau champions.
 foreach ($champions as $annee => $finale){
     // $finale est un tableau: ['champion',  'finaliste']
-    echo "$clef : $finale[0] a gagné contre $finale[1]" . PHP_EOL;
+    echo "$annee : $finale[0] a gagné contre $finale[1]" . PHP_EOL;
 }
 ```
 
@@ -428,9 +428,9 @@ foreach ($champions as $annee => $finale){
 
 $victoires = [];
 
-foreach ($champions as $final){
+foreach ($champions as $finale){
     // $final est un tableau: array('champion', 'finaliste')
-    $champion = $final[0];
+    $champion = $finale[0];
     // Est-ce-que 'champion' est déja présent dans $victoires?
     if (array_key_exists($champion, $victoires)){
         // Oui: On incrémente le nombre de victoires
