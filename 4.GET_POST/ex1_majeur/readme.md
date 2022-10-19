@@ -1,7 +1,7 @@
 # Exercice TP 1: Etes-vous majeur?
 
 ## Organisation des fichiers
-Nous allons séparer les fichiers générant du php et les placer dans le dossier [vues](vues).
+Nous allons séparer les fichiers générant du HTML et les placer dans le dossier [vues](vues).
 On commence par créer un fichier [vues/header.php](vues/header.php) qui contient l'en-tête HTML et un fichier [vues/footer.php](vues/footer.php) qui ferme les balises.
 
 https://github.com/cspaier/cours-php/blob/04726da660449ef7875d7097efe64653872762cf/4.GET_POST/ex1_majeur/vues/header.php#L1-L6
