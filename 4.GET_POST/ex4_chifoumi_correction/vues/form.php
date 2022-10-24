@@ -5,15 +5,24 @@
     <legend>Faites votre choix</legend>
       <input type="radio"  name="choix" value="0">
       <label for="0">
-        Pierre
+        <?php
+          $choix = 0;
+          include('vues/choix.php')
+        ?>
       </label>
       <input type="radio"  name="choix" value="1">
       <label for="1">
-        Feuille
+        <?php
+          $choix = 1;
+          include('vues/choix.php')
+        ?>
       </label>
       <input type="radio" name="choix" value="2">
       <label for="2">
-        Ciseaux
+        <?php
+          $choix = 2;
+          include('vues/choix.php')
+        ?>
       </label>
 </fieldset>
 

@@ -286,4 +286,37 @@ On va donc inclure ce fichier deux fois dans `vues/reponse.php`:
 <?php include('vues/footer.php');?>
 ```
 
-On peut également inclure ce fichier `vues/choix.php` dans le formulaire afin d'y afficher des images. Le fichier `vues`
+On peut également inclure ce fichier `vues/choix.php` dans le formulaire afin d'y afficher des images. Le fichier `vues/form.php` devient donc:
+
+```php
+
+<h2>Jouer</h2>
+<form action="jouer.php" method="GET">
+<fieldset>
+    <legend>Faites votre choix</legend>
+      <input type="radio"  name="choix" value="0">
+      <label for="0">
+        <?php
+          $choix = 0;
+          include('vues/choix.php')
+        ?>
+      </label>
+      <input type="radio"  name="choix" value="1">
+      <label for="1">
+        <?php
+          $choix = 1;
+          include('vues/choix.php')
+        ?>
+      </label>
+      <input type="radio" name="choix" value="2">
+      <label for="2">
+        <?php
+          $choix = 2;
+          include('vues/choix.php')
+        ?>
+      </label>
+</fieldset>
+
+<button type="submit">Envoyer</button>
+</form>
+```
