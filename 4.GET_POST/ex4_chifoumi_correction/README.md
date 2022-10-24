@@ -151,3 +151,139 @@ $gagnant = gagnant($choix_utilisateur, $choix_machine);
 // On génère le HTML
 include('vues/reponse.php')
 ```
+## formatage de la réponse
+On regarde donc le contenu du fichier `vues/reponse.php`:
+```php
+<?php include('vues/header.php'); ?>
+
+<h2>
+<!-- Gagné? Perdu? -->
+</h2>
+<table>
+<thead>
+    <tr>
+        <th>Vous</th>
+        <th> Vs </th>
+        <th> Machine </th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>
+        <!-- L'utilisateur à joué quoi? -->
+        </td>
+        <td> Vs </td>
+        <td>
+        <!-- La machine à joué quoi? -->
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<?php include('vues/form.php');?>
+
+<?php include('vues/footer.php');?>
+```
+On y voit un tableau HTML avec des commentaires indiquant où placer les informations.
+Dans ce fichier, les variables `$choix_utilisateur`, `$choix_machine` et `$gagnant` contiennent les informations dont nous avons besoins. Il va falloir les traduire:
+
+On commence par traiter le titre en remplaçant
+```php
+<h2>
+<!-- Gagné? Perdu? -->
+</h2>
+```
+par
+```php
+<h2>
+  <?php
+    switch($gagnant){
+      case 0: echo 'Egalité'; break;
+      case 1: echo 'Bravo!'; break;
+      case 2: echo 'Perdu'; break;
+    }
+  ?>
+</h2>
+```
+
+Il faudra ensuite reproduire cette logique de pour les choix pierres-feuille-ciseaux:
+```php
+<?php
+switch($choix){
+  case 0: echo 'Pierre'; break;
+  case 1: echo 'Feuille'; break;
+  case 2: echo 'Ciseaux'; break;
+}
+```
+Le principe [Don't Repeat Yoursefl](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas) nous invite à n'écrire cela qu'une seule fois.
+
+C'est le moment où on découvre l'existence du fichier `vues/choix.php` qui contient très précisément cette logique:
+```php
+<?php
+/**
+* Insère une image en fonction de la variable $choix
+* 0: Pierre
+* 1: Feuille
+* 2: Ciseaux
+*/
+switch($choix){
+    case 0:
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Basalt_-_amygdaloidal_structure.jpg/320px-Basalt_-_amygdaloidal_structure.jpg" alt="pierre">';
+        break;
+    case 1:
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Leaf_1_web.jpg/320px-Leaf_1_web.jpg" alt="feuille">';
+        break;
+    case 2:
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Pair_of_scissors_with_black_handle%2C_2015-06-07.jpg/288px-Pair_of_scissors_with_black_handle%2C_2015-06-07.jpg" alt="ciseaux">';
+        break;
+}
+```
+
+On remarque qu'au lieux d'écrire les choix en Français, ce fichier va insérer une image représentant le choix.
+On va donc inclure ce fichier deux fois dans `vues/reponse.php`:
+
+```php
+<?php include('vues/header.php'); ?>
+
+<h2>
+  <?php
+    switch($gagnant){
+      case 0: echo 'Egalité'; break;
+      case 1: echo 'Bravo!'; break;
+      case 2: echo 'Perdu'; break;
+    }
+  ?>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Vous</th>
+          <th> Vs </th>
+          <th> Machine </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>
+            <?php
+              $choix = choix_utilisateur;
+              include(`vues/choix.php`);
+            ?>
+          </td>
+          <td> Vs </td>
+          <td>
+            <?php
+              $choix = choix_machine;
+              include(`vues/choix.php`);
+            ?>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+<?php include('vues/form.php');?>
+
+<?php include('vues/footer.php');?>
+```
+
+On peut également inclure ce fichier `vues/choix.php` dans le formulaire afin d'y afficher des images. Le fichier `vues`
