@@ -1,6 +1,6 @@
 
 <h2>Jouer</h2>
-<form action="jouer.php">
+<form action="jouer.php" method="GET">
 <fieldset>
     <legend>Faites votre choix</legend>
       <input type="radio"  name="choix" value="0">
@@ -19,4 +19,3 @@
 
 <button type="submit">Envoyer</button>
 </form>
-
